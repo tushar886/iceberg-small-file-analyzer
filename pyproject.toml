@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "iceberg-small-file-analyzer"
+version = "0.2.0"
+description = "Read-only partition-aware Iceberg data-file layout analysis"
+readme = "README.md"
+requires-python = ">=3.10"
+authors = [{name = "Tushar Srivastava"}]
+dependencies = ["pyiceberg>=0.8,<0.11"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0", "ruff>=0.6"]
+
+[project.scripts]
+iceberg-small-file-analyzer = "iceberg_small_file_analyzer.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
